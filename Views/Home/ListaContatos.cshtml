@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Agenda_Telefonica.Models.Contato>
+
+@{
+    ViewData["Title"] = "Lista De Contatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<p>
+    <a asp-action="Agenda">Criar Novo Contato</a>
+</p>
+<div class="container">
+    <h2>Lista de Contatos</h2>
+
+    @if(ViewBag.Mensagem != null)
+    {
+        <div>@ViewBag.Mensagem</div>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Apelido</th>
+                <th>Telefone Residencial</th>
+                <th>Telefone Celular</th>
+                <th>Telefone Comercial</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contato in Model)
+            {
+            <tr>
+                <td>@contato.ID</td>
+                <td>@contato.Nome</td>
+                <td>@contato.Apelido</td>
+                <td>@contato.Telefone_Residencial</td>
+                <td>@contato.Telefone_Celular</td>
+                <td>@contato.Telefone_Comercial</td>
+                <td>@Html.ActionLink("Editar", "Edicao", new { id = contato.ID, nome = contato.Nome, apelido = contato.Apelido, telefone_residencial = contato.Telefone_Residencial, telefone_celular = contato.Telefone_Celular, telefone_comercial = contato.Telefone_Comercial })</td>
+                <td>@Html.ActionLink("Detalhes", "Details", new { id = contato.ID, nome = contato.Nome, apelido = contato.Apelido, telefone_residencial = contato.Telefone_Residencial, telefone_celular = contato.Telefone_Celular, telefone_comercial = contato.Telefone_Comercial })</td>
+                <td>@Html.ActionLink("Excluir", "Excluir", new { id = contato.ID, nome = contato.Nome, apelido = contato.Apelido, telefone_residencial = contato.Telefone_Residencial, telefone_celular = contato.Telefone_Celular, telefone_comercial = contato.Telefone_Comercial })</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

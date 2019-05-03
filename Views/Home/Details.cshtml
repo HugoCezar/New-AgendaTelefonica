@@ -1,0 +1,57 @@
+﻿@model Agenda_Telefonica.Models.Contato
+
+@{
+    ViewData["Title"] = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<h2>Detalhes</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone_Residencial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone_Residencial)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone_Celular)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone_Celular)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone_Comercial)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone_Comercial)
+        </dd>
+    </dl>
+
+    @Html.ActionLink("Editar", "Edicao", new { id = Model.ID, nome = Model.Nome, apelido = Model.Apelido, telefone_residencial = Model.Telefone_Residencial, telefone_celular = Model.Telefone_Celular, telefone_comercial = Model.Telefone_Comercial })     |
+    <a asp-action="ListaContatos">Retornar para a Lista</a>
+
+    @*<form asp-action="Edicao"></form>*@
+</div>
